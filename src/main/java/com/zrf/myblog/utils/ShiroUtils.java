@@ -1,6 +1,10 @@
 package com.zrf.myblog.utils;
 
+import com.zrf.myblog.enums.ResultEnum;
+import com.zrf.myblog.exception.BlogException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
@@ -12,6 +16,7 @@ import org.springframework.stereotype.Component;
  * @author 张润发
  */
 @Component
+@Slf4j
 public class ShiroUtils {
 
     private ShiroUtils() {

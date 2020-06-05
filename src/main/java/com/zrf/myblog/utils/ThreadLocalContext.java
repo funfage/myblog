@@ -32,8 +32,7 @@ public class ThreadLocalContext {
             ThreadLocalContext threadLocalContext = new ThreadLocalContext();
             threadLocal.set(threadLocalContext);
         }
-        ThreadLocalContext threadLocalContext = threadLocal.get();
-        return threadLocalContext;
+        return threadLocal.get();
     }
 
     public void remove() {

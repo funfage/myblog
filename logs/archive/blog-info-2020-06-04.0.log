@@ -1,0 +1,69 @@
+2020-06-04 11:27:17.537 INFO  [main]com.zrf.myblog.MyblogApplication.logStarting:55 -Starting MyblogApplication on DESKTOP-UU8QC51 with PID 15544 (E:\MyStudyRes\school\soa_webservices\project\myblog\target\classes started by admin in E:\MyStudyRes\school\soa_webservices\project\myblog)
+2020-06-04 11:27:17.558 INFO  [main]com.zrf.myblog.MyblogApplication.logStartupProfileInfo:655 -The following profiles are active: local
+2020-06-04 11:27:20.863 INFO  [main]o.s.boot.web.embedded.tomcat.TomcatWebServer.initialize:108 -Tomcat initialized with port(s): 1000 (http)
+2020-06-04 11:27:20.883 INFO  [main]org.apache.coyote.http11.Http11NioProtocol.log:173 -Initializing ProtocolHandler ["http-nio-1000"]
+2020-06-04 11:27:20.884 INFO  [main]org.apache.catalina.core.StandardService.log:173 -Starting service [Tomcat]
+2020-06-04 11:27:20.885 INFO  [main]org.apache.catalina.core.StandardEngine.log:173 -Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-04 11:27:21.058 INFO  [main]o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log:173 -Initializing Spring embedded WebApplicationContext
+2020-06-04 11:27:21.059 INFO  [main]org.springframework.web.context.ContextLoader.prepareWebApplicationContext:284 -Root WebApplicationContext: initialization completed in 3199 ms
+2020-06-04 11:27:21.254 INFO  [main]c.a.d.s.boot.autoconfigure.DruidDataSourceAutoConfigure.dataSource:56 -Init DruidDataSource
+2020-06-04 11:27:24.118 INFO  [main]com.alibaba.druid.pool.DruidDataSource.init:930 -{dataSource-1} inited
+2020-06-04 11:27:25.047 INFO  [main]o.s.scheduling.concurrent.ThreadPoolTaskExecutor.initialize:181 -Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-04 11:27:25.705 INFO  [main]org.apache.coyote.http11.Http11NioProtocol.log:173 -Starting ProtocolHandler ["http-nio-1000"]
+2020-06-04 11:27:25.733 INFO  [main]o.s.boot.web.embedded.tomcat.TomcatWebServer.start:220 -Tomcat started on port(s): 1000 (http) with context path ''
+2020-06-04 11:27:25.746 INFO  [main]com.zrf.myblog.MyblogApplication.logStarted:61 -Started MyblogApplication in 9.807 seconds (JVM running for 15.385)
+2020-06-04 15:39:41.976 INFO  [main]com.zrf.myblog.MyblogApplication.logStarting:55 -Starting MyblogApplication on DESKTOP-UU8QC51 with PID 13020 (E:\MyStudyRes\school\soa_webservices\project\myblog\target\classes started by admin in E:\MyStudyRes\school\soa_webservices\project\myblog)
+2020-06-04 15:39:42.048 INFO  [main]com.zrf.myblog.MyblogApplication.logStartupProfileInfo:655 -The following profiles are active: local
+2020-06-04 15:39:43.957 INFO  [main]o.s.d.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:127 -Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-06-04 15:39:44.009 INFO  [main]o.s.d.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:187 -Finished Spring Data repository scanning in 37ms. Found 0 MongoDB repository interfaces.
+2020-06-04 15:39:45.409 INFO  [main]o.s.boot.web.embedded.tomcat.TomcatWebServer.initialize:108 -Tomcat initialized with port(s): 1000 (http)
+2020-06-04 15:39:45.422 INFO  [main]org.apache.coyote.http11.Http11NioProtocol.log:173 -Initializing ProtocolHandler ["http-nio-1000"]
+2020-06-04 15:39:45.423 INFO  [main]org.apache.catalina.core.StandardService.log:173 -Starting service [Tomcat]
+2020-06-04 15:39:45.424 INFO  [main]org.apache.catalina.core.StandardEngine.log:173 -Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-04 15:39:45.584 INFO  [main]o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log:173 -Initializing Spring embedded WebApplicationContext
+2020-06-04 15:39:45.585 INFO  [main]org.springframework.web.context.ContextLoader.prepareWebApplicationContext:284 -Root WebApplicationContext: initialization completed in 3416 ms
+2020-06-04 15:39:45.890 INFO  [main]c.a.d.s.boot.autoconfigure.DruidDataSourceAutoConfigure.dataSource:56 -Init DruidDataSource
+2020-06-04 15:39:49.788 INFO  [main]com.alibaba.druid.pool.DruidDataSource.init:930 -{dataSource-1} inited
+2020-06-04 15:39:52.958 INFO  [main]o.s.scheduling.concurrent.ThreadPoolTaskExecutor.initialize:181 -Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-04 15:39:53.448 INFO  [main]org.mongodb.driver.cluster.info:71 -Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-06-04 15:39:54.563 INFO  [main]org.apache.coyote.http11.Http11NioProtocol.log:173 -Starting ProtocolHandler ["http-nio-1000"]
+2020-06-04 15:39:54.595 INFO  [main]o.s.boot.web.embedded.tomcat.TomcatWebServer.start:220 -Tomcat started on port(s): 1000 (http) with context path ''
+2020-06-04 15:39:54.609 INFO  [main]com.zrf.myblog.MyblogApplication.logStarted:61 -Started MyblogApplication in 14.138 seconds (JVM running for 18.268)
+2020-06-04 15:39:55.620 INFO  [cluster-ClusterId{value='5ed8a5496806d00d48e54324', description='null'}-localhost:27017]org.mongodb.driver.cluster.info:76 -Exception in monitor thread while connecting to server localhost:27017
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:127)
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:63)
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79)
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65)
+	... 3 common frames omitted
+2020-06-04 17:18:37.161 INFO  [main]com.zrf.myblog.MyblogApplication.logStarting:55 -Starting MyblogApplication on DESKTOP-UU8QC51 with PID 11796 (E:\MyStudyRes\school\soa_webservices\project\myblog\target\classes started by admin in E:\MyStudyRes\school\soa_webservices\project\myblog)
+2020-06-04 17:18:37.192 INFO  [main]com.zrf.myblog.MyblogApplication.logStartupProfileInfo:655 -The following profiles are active: local
+2020-06-04 17:18:39.083 INFO  [main]o.s.d.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:127 -Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-06-04 17:18:39.129 INFO  [main]o.s.d.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:187 -Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-06-04 17:18:40.358 INFO  [main]o.s.boot.web.embedded.tomcat.TomcatWebServer.initialize:108 -Tomcat initialized with port(s): 1000 (http)
+2020-06-04 17:18:40.368 INFO  [main]org.apache.coyote.http11.Http11NioProtocol.log:173 -Initializing ProtocolHandler ["http-nio-1000"]
+2020-06-04 17:18:40.369 INFO  [main]org.apache.catalina.core.StandardService.log:173 -Starting service [Tomcat]
+2020-06-04 17:18:40.369 INFO  [main]org.apache.catalina.core.StandardEngine.log:173 -Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-06-04 17:18:40.500 INFO  [main]o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log:173 -Initializing Spring embedded WebApplicationContext
+2020-06-04 17:18:40.501 INFO  [main]org.springframework.web.context.ContextLoader.prepareWebApplicationContext:284 -Root WebApplicationContext: initialization completed in 3166 ms
+2020-06-04 17:18:40.848 INFO  [main]c.a.d.s.boot.autoconfigure.DruidDataSourceAutoConfigure.dataSource:56 -Init DruidDataSource
+2020-06-04 17:18:43.611 INFO  [main]com.alibaba.druid.pool.DruidDataSource.init:930 -{dataSource-1} inited
+2020-06-04 17:18:46.079 INFO  [main]o.s.scheduling.concurrent.ThreadPoolTaskExecutor.initialize:181 -Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-04 17:18:46.474 INFO  [main]org.mongodb.driver.cluster.info:71 -Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-06-04 17:18:46.530 INFO  [cluster-ClusterId{value='5ed8bc7646e7570e779078b7', description='null'}-localhost:27017]org.mongodb.driver.connection.info:71 -Opened connection [connectionId{localValue:1, serverValue:11}] to localhost:27017
+2020-06-04 17:18:46.535 INFO  [cluster-ClusterId{value='5ed8bc7646e7570e779078b7', description='null'}-localhost:27017]org.mongodb.driver.cluster.info:71 -Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3079400}
+2020-06-04 17:18:47.467 INFO  [main]org.apache.coyote.http11.Http11NioProtocol.log:173 -Starting ProtocolHandler ["http-nio-1000"]
+2020-06-04 17:18:47.489 INFO  [main]o.s.boot.web.embedded.tomcat.TomcatWebServer.start:220 -Tomcat started on port(s): 1000 (http) with context path ''
+2020-06-04 17:18:47.498 INFO  [main]com.zrf.myblog.MyblogApplication.logStarted:61 -Started MyblogApplication in 11.536 seconds (JVM running for 14.475)

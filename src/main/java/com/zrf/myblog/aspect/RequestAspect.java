@@ -75,6 +75,7 @@ public class RequestAspect {
         log.info("返回值：{}", JSON.toJSONString(ret));
         Log logger = ThreadLocalContext.get().getLogger();
         logger.setLogResult(result);
+        //保存日志
         logService.save(logger);
     }
 
@@ -88,9 +89,10 @@ public class RequestAspect {
     public void saveExceptionLog(JoinPoint joinPoint, Throwable e) {
         Log logger = ThreadLocalContext.get().getLogger();
         logger.setLogStatus(StateEnums.REQUEST_ERROR.getCode());
-        String exception = StringUtils.getPackageException(e, "com.jg");
+        String exception = StringUtils.getPackageException(e, "com.zrf");
         logger.setLogMessage(exception);
         logger.setLogTime(0L);
+        //发生异常时不走后置通知,将日志保存到数据库
         logService.save(logger);
     }
 
