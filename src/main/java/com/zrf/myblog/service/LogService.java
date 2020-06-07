@@ -2,6 +2,7 @@ package com.zrf.myblog.service;
 
 import com.zrf.myblog.pojo.Log;
 import com.zrf.myblog.utils.Page;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,5 +49,5 @@ public interface LogService {
      * 查询数据，构建成workbook用于导出
      * @return
      */
-//    Workbook export();
+    Workbook export();
 }

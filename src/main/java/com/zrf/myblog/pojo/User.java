@@ -1,7 +1,10 @@
 package com.zrf.myblog.pojo;
 
+import com.zrf.myblog.group.Insert;
+import com.zrf.myblog.group.Update;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -19,16 +22,19 @@ public class User implements Serializable {
     /**
      * 用户id
      */
+    @NotNull(message = "userId不能为空！", groups = {Update.class})
     private Integer userId;
 
     /**
      * 用户名
      */
+    @NotNull(message = "用户名不能为空！", groups = {Insert.class, Update.class})
     private String username;
 
     /**
      * 密码
      */
+    @NotNull(message = "密码不能为空！", groups = {Insert.class})
     private String password;
 
     /**

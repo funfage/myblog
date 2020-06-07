@@ -1,6 +1,9 @@
 package com.zrf.myblog.pojo;
 
+import com.zrf.myblog.group.Update;
 import lombok.Data;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @author 张润发
@@ -8,6 +11,7 @@ import lombok.Data;
 @Data
 public class Music {
 
+    @NotNull(message = "id不能为空！", groups = {Update.class})
     private Integer id;
     private String name;
     private String artist;

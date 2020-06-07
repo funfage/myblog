@@ -26,6 +26,91 @@
         enable,
         deleted
     </sql>
-
+    <insert id="save" parameterType="com.zrf.myblog.pojo.About">
+        insert into bl_about(about_title, about_content) values(
+            #{aboutTitle}, #{aboutContent}
+        )
+    </insert>
+    <update id="updateById" parameterType="com.zrf.myblog.pojo.About">
+        update bl_about set
+        version = version + 1
+        <if test="aboutTitle!=null and aboutTitle!=''">
+            ,about_title = #{aboutTitle}
+        </if>
+        <if test="aboutContent!=null and aboutContent!=''">
+            ,about_content = #{aboutContent}
+        </if>
+        <if test="aboutRead!=null">
+            ,about_read = #{aboutRead}
+        </if>
+        where about_id = #{aboutId}
+        and version = #{version}
+    </update>
+    <select id="getById" resultMap="BaseResultMap">
+        select
+            about_id,
+            about_title,
+            about_content,
+            about_read,
+            created_time,
+            update_time,
+            version
+        from bl_about
+        where about_id = #{aboutId}
+        and deleted = 0
+    </select>
+    <select id="getAbout" resultMap="BaseResultMap">
+        select
+            about_id,
+            about_title,
+            about_content,
+            about_read,
+            created_time,
+            update_time,
+            version
+        from bl_about
+        where enable = 1
+        and deleted = 0
+        limit 1
+    </select>
+    <update id="deleteById">
+        update bl_about set
+        deleted = 1
+        where about_id = #{id}
+    </update>
+    <update id="updateEnable" parameterType="com.zrf.myblog.pojo.About">
+        update bl_about set
+        version = version + 1,
+        enable = #{enable}
+        where about_id = #{aboutId}
+        and version = #{version}
+    </update>
+    <select id="getByPage" parameterType="com.zrf.myblog.utils.Page" resultMap="BaseResultMap">
+        select
+        about_id,
+        about_title,
+        about_read,
+        created_time,
+        update_time,
+        enable
+        from bl_about
+        where  deleted = 0
+        <if test="params.aboutTitle!=null and params.aboutTitle!=''">
+            and about_title like CONCAT('%', #{params.aboutTitle}, '%')
+        </if>
+        <if test="sortColumn!=null and sortColumn!=''">
+            order by ${sortColumn} ${sortMethod}
+        </if>
+        limit #{index}, #{pageSize}
+    </select>
+    <select id="getCountByPage" parameterType="com.zrf.myblog.utils.Page" resultType="java.lang.Integer">
+        select
+        count(*)
+        from bl_about
+        where  deleted = 0
+        <if test="params.aboutTitle!=null and params.aboutTitle!=''">
+            and about_title like CONCAT('%', #{params.aboutTitle}, '%')
+        </if>
+    </select>
 
 </mapper>

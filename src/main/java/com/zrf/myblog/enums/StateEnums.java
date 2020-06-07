@@ -14,13 +14,13 @@ public enum StateEnums {
      * 逻辑删除状态
      */
     DELETED(1, "已删除"),
-    NOT_DELETED(2, "未删除"),
+    NOT_DELETED(0, "未删除"),
 
     /**
      * 启用状态
      */
     ENABLED(1, "1启用"),
-    NOT_ENABLED(2, "未启用"),
+    NOT_ENABLED(0, "未启用"),
 
     /**
      * 性别状态

@@ -1,11 +1,14 @@
 package com.zrf.myblog.service.impl;
 
 
+import com.zrf.myblog.excel.entity.ExportParams;
+import com.zrf.myblog.excel.handler.ExcelExportHandler;
 import com.zrf.myblog.mapper.LogMapper;
 import com.zrf.myblog.pojo.Log;
 import com.zrf.myblog.service.LogService;
 import com.zrf.myblog.utils.Page;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,9 +59,9 @@ public class LogServiceImpl implements LogService {
         logMapper.deleteByIds(ids);
     }
 
-    /*@Override
+    @Override
     public Workbook export() {
         List<Log> logList = logMapper.getAll();
         return new ExcelExportHandler().createSheet(new ExportParams("最新日志", "sheet1"), Log.class, logList);
-    }*/
+    }
 }
