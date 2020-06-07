@@ -17,6 +17,11 @@ public class BlogException extends RuntimeException {
         this.errorCode = resultEnum.getCode();
     }
 
+    public BlogException(ResultEnum resultEnum, String msgPrefix) {
+        super(msgPrefix + resultEnum.getMsg());
+        this.errorCode = resultEnum.getCode();
+    }
+
     public BlogException(ResultEnum resultEnum, Throwable throwable) {
         super(resultEnum.getMsg(), throwable);
         this.errorCode = resultEnum.getCode();

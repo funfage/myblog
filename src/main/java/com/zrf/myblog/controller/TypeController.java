@@ -1,11 +1,19 @@
 package com.zrf.myblog.controller;
 
+import com.zrf.myblog.group.Insert;
+import com.zrf.myblog.group.Update;
 import com.zrf.myblog.pojo.Type;
 import com.zrf.myblog.service.TypeService;
 import com.zrf.myblog.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -14,6 +22,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/type")
+@Validated
 public class TypeController {
 
     @Autowired
@@ -21,17 +30,19 @@ public class TypeController {
 
     /**
      * 添加type
+     *
      * @param type
      * @return
      */
     @PostMapping("/save")
-    public Result<Object> save(@RequestBody Type type) {
+    public Result<Object> save(@Validated({Insert.class}) @RequestBody Type type) {
         typeService.save(type);
         return new Result<>("添加成功！");
     }
 
     /**
      * 后台查询所有
+     *
      * @return
      */
     @GetMapping("/listBack")
@@ -42,6 +53,7 @@ public class TypeController {
 
     /**
      * 前台查询所有
+     *
      * @return
      */
     @GetMapping("/getList")
@@ -52,55 +64,60 @@ public class TypeController {
 
     /**
      * 根据id更新
+     *
      * @param type
      * @return
      */
     @PutMapping("/update")
-    public Result<Object> update(@RequestBody Type type) {
+    public Result<Object> update(@Validated({Update.class}) @RequestBody Type type) {
         typeService.update(type);
         return new Result<>("更新成功！");
     }
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
-    @GetMapping("/get/{id}")
-    public Result<Object> getById(@PathVariable Integer id) {
+    @GetMapping(value = "/get/{id}")
+    public Result<Object> getById(@PathVariable @Min(value = 0, message = "id的值必须大于0！") Integer id) {
         Type type = typeService.getById(id);
         return new Result<>(type);
     }
 
     /**
      * 根据id启用
+     *
      * @param id
      * @return
      */
     @PutMapping("/enable/{id}")
-    public Result<Object> enable(@PathVariable Integer id) {
+    public Result<Object> enable(@PathVariable @Min(value = 0, message = "id的值必须大于0！") Integer id) {
         typeService.enableById(id);
         return new Result<>("已启用！");
     }
 
     /**
      * 根据id弃用
+     *
      * @param id
      * @return
      */
     @PutMapping("/disable/{id}")
-    public Result<Object> disable(@PathVariable Integer id) {
+    public Result<Object> disable(@PathVariable @Min(value = 0, message = "id的值必须大于0！") Integer id) {
         typeService.disableById(id);
         return new Result<>("已弃用！");
     }
 
     /**
      * 根据id删除
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/delete/{id}")
-    public Result<Object> delete(@PathVariable Integer id) {
+    public Result<Object> delete(@PathVariable @Min(value = 0, message = "id的值必须大于0！") Integer id) {
         typeService.deleteById(id);
         return new Result<>("删除成功！");
     }

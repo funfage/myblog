@@ -82,7 +82,8 @@ public class Page<T> implements Serializable {
 
     /**
      * 获取index
-     *
+     * mybatis获取属性时是根据get方法后面的属性名获取
+     * 所以不需要定义index也可以
      * @return
      */
     public Integer getIndex() {
@@ -94,6 +95,7 @@ public class Page<T> implements Serializable {
      */
     public void setTotalCount(Integer totalCount) {
         this.totalCount = totalCount;
+        //向上取整
         this.totalPage = (int) Math.ceil(totalCount * 1.0 / pageSize);
     }
 

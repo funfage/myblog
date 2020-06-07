@@ -2,6 +2,7 @@ package com.zrf.myblog.pojo;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**

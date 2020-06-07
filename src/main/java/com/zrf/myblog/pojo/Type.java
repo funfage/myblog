@@ -1,7 +1,11 @@
 package com.zrf.myblog.pojo;
 
+import com.zrf.myblog.group.Insert;
+import com.zrf.myblog.group.Update;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -19,11 +23,13 @@ public class Type implements Serializable {
     /**
      * 分类id
      */
+    @NotNull(message = "typeId不能为空！", groups = {Update.class})
     private Integer typeId;
 
     /**
      * 分类名称
      */
+    @NotBlank(message = "分类名称不能为空！", groups = {Update.class, Insert.class})
     private String typeName;
 
     /**

@@ -7,17 +7,18 @@ import com.zrf.myblog.utils.Result;
 import com.zrf.myblog.utils.ShiroUtils;
 import com.zrf.myblog.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * @author 张润发
  */
+@Component
 @Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
 

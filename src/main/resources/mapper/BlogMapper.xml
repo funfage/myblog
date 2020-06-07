@@ -42,5 +42,95 @@
         blog_read, blog_collection, blog_type, blog_remark, blog_comment,
         blog_source, created_time, update_time, version, deleted
     </sql>
-
+    <insert id="save" parameterType="com.zrf.myblog.pojo.Blog">
+        insert into bl_blog(
+            blog_id, blog_title,blog_image, blog_content, blog_type, blog_remark, blog_source
+        ) values (
+            #{blogId}, #{blogTitle}, #{blogImage}, #{blogContent}, #{blogType}, #{blogRemark}, #{blogSource}
+        )
+    </insert>
+    <select id="getById" resultMap="BaseResultMap">
+        select
+        blog_id, blog_title, blog_content, blog_goods, blog_image,
+        blog_read, blog_collection, blog_type, blog_remark,
+        blog_comment, blog_source, created_time, version
+        from bl_blog
+        where blog_id = #{blogId}
+        and deleted = 0
+    </select>
+    <update id="update" parameterType="com.zrf.myblog.pojo.Blog">
+        update bl_blog set
+        version = version + 1
+        <if test="blogTitle!=null and blogTitle!=''">
+            ,blog_title = #{blogTitle}
+        </if>
+        <if test="blogImage!=null and blogImage!=''">
+            ,blog_image = #{blogImage}
+        </if>
+        <if test="blogContent!=null and blogContent!=''">
+            ,blog_content = #{blogContent}
+        </if>
+        <if test="blogGoods!=null">
+            ,blog_goods = #{blogGoods}
+        </if>
+        <if test="blogRead!=null">
+            ,blog_read = #{blogRead}
+        </if>
+        <if test="blogCollection!=null">
+            ,blog_collection = #{blogCollection}
+        </if>
+        <if test="blogType!=null">
+            ,blog_type = #{blogType}
+        </if>
+        <if test="blogRemark!=null and blogRemark!=''">
+            ,blog_remark = #{blogRemark}
+        </if>
+        <if test="blogComment!=null">
+            ,blog_comment = #{blogComment}
+        </if>
+        <if test="blogSource!=null and blogSource!=''">
+            ,blog_source = #{blogSource}
+        </if>
+        where blog_id = #{blogId}
+        and version = #{version}
+    </update>
+    <update id="deleteById" parameterType="string">
+        update bl_blog set
+        deleted = 1
+        where blog_id = #{id}
+    </update>
+    <select id="getByPage" parameterType="com.zrf.myblog.utils.Page" resultMap="VoResultMap">
+        select
+        blog_id, blog_title, blog_image, blog_goods,
+        blog_read, blog_collection, blog_remark, blog_comment,
+        blog_source, created_time, update_time,type_name
+        from bl_blog as b
+        inner join bl_type as t
+        on type_id = blog_type
+        where t.deleted = 0 and b.deleted = 0
+        <if test="params.blogTitle!=null and params.blogTitle!=''">
+            and blog_title like CONCAT('%', #{params.blogTitle}, '%')
+        </if>
+        <if test="params.typeId!=null and params.typeId!=''">
+            and type_id = #{params.typeId}
+        </if>
+        <if test="sortColumn!=null and sortColumn!=''">
+            order by ${sortColumn} ${sortMethod}
+        </if>
+        limit #{index}, #{pageSize}
+    </select>
+    <select id="getCountByPage" parameterType="com.zrf.myblog.utils.Page" resultType="java.lang.Integer">
+        select
+        count(*)
+        from bl_blog as b
+        inner join bl_type as t
+        on type_id = blog_type
+        where t.deleted = 0 and b.deleted = 0
+        <if test="params.blogTitle!=null and params.blogTitle!=''">
+            and blog_title like CONCAT('%', #{params.blogTitle}, '%')
+        </if>
+        <if test="params.typeId!=null and params.typeId!=''">
+            and type_id = #{params.typeId}
+        </if>
+    </select>
 </mapper>

@@ -1,7 +1,10 @@
 package com.zrf.myblog.pojo;
 
+import com.zrf.myblog.group.Insert;
+import com.zrf.myblog.group.Update;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -20,7 +23,14 @@ public class Blog implements Serializable {
     /**
      * 帖子id
      */
+    @NotNull(message = "blogId不能为空！", groups = {Update.class})
     private String blogId;
+
+    /**
+     * 博客分类
+     */
+    @NotNull(message = "blogType不能为空", groups = {Insert.class, Update.class})
+    private Integer blogType;
 
     /**
      * 标题
@@ -52,10 +62,6 @@ public class Blog implements Serializable {
      */
     private Integer blogCollection;
 
-    /**
-     * 博客分类
-     */
-    private Integer blogType;
 
     /**
      * 简介
@@ -85,6 +91,7 @@ public class Blog implements Serializable {
     /**
      * 乐观锁
      */
+    @NotNull(message = "version不能为空！", groups = {Update.class})
     private Integer version;
 
     /**
